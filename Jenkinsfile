@@ -4,7 +4,7 @@ pipeline {
     maven 'M2_HOME'
   }
   
-  environment {
+   environment {
     registry = "dtlary25/devops-pipeline"
     registryCredential = 'DockerID'
   }
@@ -30,7 +30,7 @@ pipeline {
     
      stage('Deploy'){
       steps {
-        script{
+        script {
           docker.build registry + ":$BUILD_NUMBER"
         }
         
@@ -39,14 +39,7 @@ pipeline {
     
     }
     
-     stage('docker'){
-      steps {
-        echo "image step"
-        sleep 10
-      
-      }
-    
-    }
+     
   }
 
 
